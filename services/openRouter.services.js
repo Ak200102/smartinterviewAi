@@ -61,9 +61,9 @@ export const askAi = async (
     }
 
     const response = await axios.post(
-      "https://api.groq.com/openai/v1/chat/completions",
+      "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "llama-3.3-70b-versatile",
+        model: "minimax/minimax-m3:free",
         messages,
         temperature: 0.2,
         max_completion_tokens: maxTokens,
