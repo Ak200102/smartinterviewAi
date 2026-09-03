@@ -93,12 +93,12 @@ export const askAi = async (
 
     // ✅ retry on temporary failure
     if ((status === 429 || status === 503) && retries > 0) {
-      console.log("Groq busy. Retrying...");
+      console.log("AI busy. Retrying...");
       await new Promise(r => setTimeout(r, 1500));
       return askAi(messages, maxTokens, retries - 1);
     }
 
-    console.log("Groq Error:", error.response?.data || error.message);
+    console.log("openRouter error:", error.response?.data || error.message);
     throw new Error("AI_REQUEST_FAILED");
   }
 };
